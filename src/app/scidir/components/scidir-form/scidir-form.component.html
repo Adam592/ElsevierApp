@@ -1,0 +1,95 @@
+<div class="d-flex flex-column flex-grow-1 justify-content-center div-margin">
+  <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-8 py-2">
+      <div class="content-box text-center rounded p-4">
+        <h2 class="h3">Science Direct Title Series Metadata</h2>
+        <div class="mb-3 d-flex justify-content-center p-3">
+          <button (click)="navigateToList()" class="btn btn-secondary me-2">Go to List</button>
+        </div>
+        <form #journalForm="ngForm" (ngSubmit)="onSubmit(journalForm)" novalidate>
+          <div class="mb-3 text-start">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" name="title" ngModel required pattern="[a-zA-Z\s]*" class="form-control"
+              #title="ngModel" [ngClass]="{'is-invalid': title.invalid && title.touched}">
+            <div class="invalid-feedback" [hidden]="title.valid || title.untouched" class="alert alert-danger">
+              Field cannot be empty or contain numbers
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="issn" class="form-label">ISSN (Optional)</label>
+            <input type="text" id="issn" name="issn" ngModel pattern="\d*" class="form-control" #issn="ngModel"
+              [ngClass]="{'is-invalid': issn.invalid && issn.touched}">
+            <div class="invalid-feedback" [hidden]="issn.valid || issn.untouched" class="alert alert-danger">
+              Field must contain only numbers
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="subj" class="form-label">Subject</label>
+            <select id="subj" name="subj" ngModel required class="form-control" #subj="ngModel"
+              [ngClass]="{'is-invalid': subj.invalid && subj.touched}">
+              <option value="" disabled selected>Select subject</option>
+              <option value="AGRI">Agricultural and Biological Sciences</option>
+              <option value="ARTS">Arts and Humanities</option>
+              <option value="BIOC">Biochemistry, Genetics and Molecular Biology</option>
+              <option value="BUSI">Business, Management and Accounting</option>
+              <option value="CENG">Chemical Engineering</option>
+              <option value="CHEM">Chemistry</option>
+              <option value="COMP">Computer Science</option>
+              <option value="DECI">Decision Sciences</option>
+              <option value="DENT">Dentistry</option>
+              <option value="EART">Earth and Planetary Sciences</option>
+              <option value="ECON">Economics, Econometrics and Finance</option>
+              <option value="ENER">Energy</option>
+              <option value="ENGI">Engineering</option>
+              <option value="ENVI">Environmental Science</option>
+              <option value="HEAL">Health Professions</option>
+              <option value="SOCI">Social Sciences</option>
+              <option value="VETE">Veterinary</option>
+              <option value="MULT">Multidisciplinary</option>
+            </select>
+            <div class="invalid-feedback" [hidden]="subj.valid || subj.untouched" class="alert alert-danger">
+              Field cannot be empty
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="start" class="form-label">Start Number (Offset)</label>
+            <input type="number" id="start" name="start" ngModel required min="0" class="form-control" #start="ngModel"
+              [ngClass]="{'is-invalid': start.invalid && start.touched}">
+            <div class="invalid-feedback" [hidden]="start.valid || start.untouched" class="alert alert-danger">
+              Field cannot be empty and must be a postivie number
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="count" class="form-label">Count Number (How many records to display)</label>
+            <input type="number" id="count" name="count" ngModel required min="1" max="30" class="form-control" #count="ngModel"
+              [ngClass]="{'is-invalid': count.invalid && count.touched}">
+            <div class="invalid-feedback" [hidden]="count.valid || count.untouched" class="alert alert-danger">
+              Field cannot be empty, must be a positive number and in range between 1 and 30
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="oa" class="form-label">Open Access</label>
+            <select id="oa" name="oa" ngModel required class="form-control" #oa="ngModel"
+              [ngClass]="{'is-invalid': oa.invalid && oa.touched}">
+              <option value="" disabled selected>Select open access</option>
+              <option value="all">All</option>
+              <option value="full">Full</option>
+              <option value="partial">Partial</option>
+              <option value="none">None</option>
+            </select>
+            <div class="invalid-feedback" [hidden]="oa.valid || oa.untouched" class="alert alert-danger">
+              Field cannot be empty
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="journalForm.invalid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

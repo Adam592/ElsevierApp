@@ -1,0 +1,66 @@
+<div class="d-flex flex-column flex-grow-1 justify-content-center div-margin">
+    <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-8 py-2">
+            <div class="content-box text-center rounded p-4">
+                <h2 class="h3">Scopus Article Fetch</h2>
+                <div class="mb-3 d-flex justify-content-center p-3">
+                    <button (click)="navigateToList()" class="btn btn-secondary me-2">Go to List</button>
+                    <button (click)="navigateToSnippets()" class="btn btn-secondary">Go to Snippets</button>
+                </div>
+                <form #journalForm="ngForm" (ngSubmit)="onSubmit(journalForm)" novalidate>
+                    <div class="mb-3 text-start">
+                        <label for="KEY" class="form-label">Keywords Searched</label>
+                        <input type="text" id="KEY" name="KEY" ngModel pattern="[a-zA-Z\s]*" required class="form-control" #KEY="ngModel" >
+                        <div class="invalid-feedback" [hidden]="KEY.valid || KEY.untouched" class="alert alert-danger">
+                            Input correct values
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="AFFIL" class="form-label">Affiliation</label>
+                        <input type="text" id="AFFIL" name="AFFIL" ngModel pattern="[a-zA-Z\s]*" required class="form-control" #AFFIL="ngModel">
+                        <div class="invalid-feedback" [hidden]="AFFIL.valid || AFFIL.untouched" class="alert alert-danger">
+                            Input correct values
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="ABS" class="form-label">Abstract Keywords</label>
+                        <input type="text" id="ABS" name="ABS" ngModel pattern="[a-zA-Z\s]*" required class="form-control" #ABS="ngModel" >
+                        <div class="invalid-feedback" [hidden]="ABS.valid || ABS.untouched" class="alert alert-danger">
+                            Input correct values
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="AUTHOR-NAME" class="form-label">Author Name (Optional)</label>
+                        <input type="text" id="AUTHOR-NAME" name="AUTHOR-NAME" ngModel pattern="[a-zA-Z\s]*" class="form-control" #AUTHORNAME="ngModel" >
+                        <div class="invalid-feedback" [hidden]="AUTHORNAME.valid || AUTHORNAME.untouched" class="alert alert-danger">
+                            Input correct values
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="DOCTYPE" class="form-label">Document Type</label>
+                        <select id="DOCTYPE" name="DOCTYPE" ngModel required class="form-control" #DOCTYPE="ngModel">
+                            <option value="" disabled selected>Select document type</option>
+                            <option value="ar">Article</option>
+                            <option value="re">Review</option>
+                            <option value="ch">Chapter</option>
+                        </select>
+                        <div class="invalid-feedback" [hidden]="DOCTYPE.valid || DOCTYPE.untouched" class="alert alert-danger">
+                            Field cannot be empty
+                        </div>
+                    </div>
+
+                    <div class="mb-3 form-check text-start">
+                      <input type="checkbox" id="OPENACCESS" name="OPENACCESS" ngModel class="form-check-input" #OPENACCESS="ngModel">
+                      <label for="OPENACCESS" class="form-check-label">Open Access</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" [disabled]="journalForm.invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

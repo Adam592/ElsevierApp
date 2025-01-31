@@ -1,0 +1,18 @@
+$text-color: #ffffff;
+$body-color: #282b30;
+$snippet-bg-color: #333842;
+
+.content-box {
+    background-color: $body-color;
+    color: $text-color;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem;
+    margin-top: 5%;
+}
+
+.snippet-item {
+    background-color: $snippet-bg-color;
+    color: $text-color;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}

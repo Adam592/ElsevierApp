@@ -1,0 +1,23 @@
+<div class="mb-3 d-flex justify-content-center button-detail">
+    <button (click)="navigateToList()" class="btn btn-secondary me-2">Go to List</button>
+    <button (click)="navigateToForm()" class="btn btn-secondary me-2">Go to Form</button>
+    <button (click)="navigateToSnippets()" class="btn btn-secondary me-2">Go to Snippets</button>
+</div>
+<div *ngIf="journal" class="d-flex flex-column align-items-center justify-content-center entry-detail">
+    <div class="col-12 col-md-8 py-2">
+        <div class="content-box text-center rounded p-4 " >
+            <h1>{{ journal.title }}</h1>
+            <p><strong>Creator:</strong> {{ journal.creator }}</p>
+            <p><strong>Cited by:</strong> {{ journal.citedbyCount }}</p>
+            <p><strong>DOI:</strong> {{ journal.doi }}</p>
+            <p><strong>ISSN:</strong> {{ journal.issn }}</p>
+            <p><strong>Page Range:</strong> {{ journal.pageRange }}</p>
+            <p><strong>Publication Name:</strong> {{ journal.publicationName }}</p>
+            <p><strong>URL: </strong> <a [href]="journal.url" target="_blank">{{ journal.url }}</a></p>
+            <p><strong>Volume:</strong> {{ journal.volume }}</p>
+            <div class="mb-3 d-flex justify-content-center">
+                <button (click)="saveArticle(journal)" class="btn btn-primary">Save Article</button>
+            </div>
+        </div>
+    </div>
+</div>

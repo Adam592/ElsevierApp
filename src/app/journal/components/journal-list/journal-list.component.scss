@@ -1,0 +1,16 @@
+$body-color: #1e2124;
+$text-color: #ffffff;
+$list-item-bg-color: #282b30;
+
+.content-box {
+    background-color: $body-color;
+    color: $text-color;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.article {
+    background-color: $list-item-bg-color;
+    margin: 1%;
+}
+

@@ -1,0 +1,30 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+
+<div class="d-flex flex-column flex-grow-1 justify-content-center ">
+  <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-8 py-2">
+      <div class="content-box text-center rounded p-4">
+        <h2 class="h3 my-4">Scopus Article Insight</h2>
+        <div class="mb-3 d-flex justify-content-center p-3">
+          <button class="btn btn-secondary me-2" (click)="navigateToForm()">Back to Form</button>
+          <button class="btn btn-secondary" (click)="navigateToSnippets()">View Saved Snippets</button>
+        </div>
+        <div class="list-group w-80 ">
+          <div class="list-group-item mb-3 article" *ngFor="let journal of journals">
+            <app-journal-list-element [journal]="journal"></app-journal-list-element>
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-secondary me-2" (click)="viewArticle(journal.issn)">View Details</button>
+              <button class="btn btn-secondary" (click)="saveArticle(journal)">Save Article</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="d-flex flex-column flex-grow-1 div-margin">
+  <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-8 py-2">
+      <div class="content-box text-center rounded p-4">
+        <h2 class="h3">Contact Form</h2>
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+          <div class="mb-3 text-start">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" ngModel required class="form-control" #name="ngModel">
+            <div class="invalid-feedback" [hidden]="name.valid || name.untouched" class="alert alert-danger">
+              Name is required
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" id="surname" name="surname" ngModel required class="form-control" #surname="ngModel">
+            <div class="invalid-feedback" [hidden]="surname.valid || surname.untouched" class="alert alert-danger">
+              Surname is required
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" ngModel required email class="form-control" #email="ngModel">
+            <div class="invalid-feedback" [hidden]="email.valid || email.untouched" class="alert alert-danger">
+              Valid email is required
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="phoneNumber" class="form-label">Phone Number (Optional)</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" ngModel pattern="^\+?\d{0,13}" class="form-control"
+              #phoneNumber="ngModel">
+            <div class="invalid-feedback" [hidden]="phoneNumber.valid || phoneNumber.untouched" class="alert alert-danger">
+              Valid phone number is required
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="typeOfFeedback" class="form-label">Type of Feedback</label>
+            <select id="typeOfFeedback" name="typeOfFeedback" ngModel required class="form-control"
+              #typeOfFeedback="ngModel">
+              <option value="" disabled selected>Select feedback type</option>
+              <option value="general">General</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+            </select>
+            <div class="invalid-feedback" [hidden]="typeOfFeedback.valid || typeOfFeedback.untouched" class="alert alert-danger">
+              Type of feedback is required
+            </div>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" ngModel required class="form-control" rows="5"
+              #message="ngModel"></textarea>
+            <div class="invalid-feedback" [hidden]="message.valid || message.untouched" class="alert alert-danger">
+              Message is required
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showPopup" class="popup" [ngClass]="{'success': isSuccess, 'failure': !isSuccess}">
+    <p>{{ popupMessage }}</p>
+    <button (click)="closePopup()" class="btn btn-primary" >Close</button>
+  </div>
+</div>

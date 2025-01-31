@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'bootstrap/scss/bootstrap.scss' as *;
+
+$text-color: #ffffff;
+$body-color: #424549;
+$nav-body-color: #282b30;
+$shadow-color: rgba(0, 0, 0, 0.2);
+$highlight-color: #7289da;
+
+body {
+    background-color: $body-color;
+    color: $text-color;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $nav-body-color;
+    color: $text-color;
+    box-shadow: 0 4px 2px -2px $shadow-color;
+    padding: 1rem 0;
+}
+
+.footer {
+    background-color: $nav-body-color;
+    color: $text-color;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.navbar-brand {
+    color: $text-color;
+}
+
+.btn-link {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $highlight-color;
+        text-decoration: none;
+    }
+}

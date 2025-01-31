@@ -1,0 +1,15 @@
+<div class="card w-100 p-3 article-style">
+    <div class="card-body">
+        <h3 class="card-title">{{ article.title }}</h3>
+        <p class="card-text"><strong>ISSN:</strong> {{ article.issn }}</p>
+        <p class="card-text"><strong>Open Access Type:</strong> {{ article.openaccessType }}</p>
+        <p class="card-text"><strong>URL: </strong> <a [href]="article.url" target="_blank">{{ article.url }}</a></p>
+        <p class="card-text"><strong>Publisher:</strong> {{ article.publisher }}</p>
+        <p class="card-text"><strong>Cite Score Current Metric:</strong> {{ article.citeScoreCurrentMetric }}</p>
+        <p class="card-text"><strong>Cite Score Current Metric Year:</strong> {{ article.citeScoreCurrentMetricYear }}
+        </p>
+        <p class="card-text"><strong>Cite Score Tracker:</strong> {{ article.citeScoreTracker }}</p>
+        <p class="card-text"><strong>Cite Score Tracker Year:</strong> {{ article.citeScoreTrackerYear }}</p>
+        <p class="card-text"><strong>Cite Score Year Info:</strong> {{ article.citeScoreYearInfo }}</p>
+    </div>
+</div>

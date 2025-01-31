@@ -1,0 +1,11 @@
+<div class="d-flex flex-column align-items-center">
+    <h2 class="h3 my-4">Science Direct Serial Title Metadata</h2>
+    <div class="mb-3 d-flex justify-content-center">
+        <button (click)="navigateToForm()" class="btn btn-secondary">Go to Form</button>
+    </div>
+    <div class="list-group w-80">
+        <div class="list-group-item mb-3 article-style" *ngFor="let article of articles">
+            <app-scidir-list-element [article]="article"></app-scidir-list-element>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+$body-color: #282b30;
+$text-color: #ffffff;
+
+.content-box {
+    background-color: $body-color;
+    color: $text-color;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.div-margin{
+    margin-top: 8%;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1001;
+    background-color: $body-color;
+    color: $text-color;
+
+    &.success {
+        border: 2px solid green;
+    }
+
+    &.failure {
+        border: 2px solid red;
+    }
+}
+
+form .ng-touched.ng-invalid {
+    border: 3px solid red
+}

@@ -1,0 +1,17 @@
+$text-color: #ffffff;
+$body-color: #282b30;
+
+form .ng-touched.ng-invalid {
+  border: 3px solid red
+}
+
+.content-box {
+  background-color: $body-color;
+  color: $text-color;
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.div-margin{
+  margin-top: 8%;
+}

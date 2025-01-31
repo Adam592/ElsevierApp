@@ -1,0 +1,13 @@
+$nav-body-color: #282b30;
+$text-color: #ffffff;
+
+.article-style {
+    background-color: $nav-body-color;
+    color: $text-color;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.w-80 {
+    width: 50%;
+}

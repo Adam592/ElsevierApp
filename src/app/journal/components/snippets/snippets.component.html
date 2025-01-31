@@ -1,0 +1,27 @@
+<div class="d-flex flex-column flex-grow-1 justify-content-center">
+    <div class="container flex-grow-1 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-8 py-2">
+            <div class="content-box text-center rounded p-4">
+                <h2 class="h3 my-4">Saved Snippets</h2>
+                <div class="mb-3 d-flex justify-content-center p-3">
+                    <button (click)="downloadSnippets()" class="btn btn-primary me-2">Download Snippets</button>
+                </div>
+                <div class="mb-3 d-flex justify-content-center p-3">
+                    <button (click)="navigateToList()" class="btn btn-secondary me-2">Go to List</button>
+                    <button (click)="navigateToForm()" class="btn btn-secondary">Go to Form</button>
+                </div>
+                <div class="list-group w-80">
+                    <div class="list-group-item mb-3 snippet-item" *ngFor="let snippet of snippets">
+                        <h3 class="card-title">{{ snippet.title }}</h3>
+                        <p class="card-text"><strong>Creator:</strong> {{ snippet.creator }}</p>
+                        <p class="card-text"><strong>Cited by:</strong> {{ snippet.citedbyCount }}</p>
+                        <p class="card-text"><strong>DOI:</strong> {{ snippet.doi }}</p>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button (click)="deleteSnippet(snippet.issn)" class="btn btn-danger me-2">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
